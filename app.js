@@ -3,8 +3,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
+var config = require('./config/index');
 
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -12,7 +13,7 @@ var idcardRouter = require('./routes/idcard');
 
 main().catch(err => console.log(err));
 async function main() {
-    await mongoose.connect('mongodb+srv://superdev:lin2357649@1913110191-lin.5grblxi.mongodb.net/API_Mongo')
+    await mongoose.connect(config.MONGODB_URI)
 }
 
 var app = express();
