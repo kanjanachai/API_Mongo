@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-const userController = require('../controller/userController')
-
-router.get("/", userController.index);
-
-router.put("/update", userController.updateInfo);
+router.get("/", function(req, res) {
+    res.status(200).json({
+        message: "Test User"
+    })
+});
 
 module.exports = router;
